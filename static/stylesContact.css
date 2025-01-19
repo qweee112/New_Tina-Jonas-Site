@@ -1,0 +1,82 @@
+.location {
+  background: url("/static/contactBG.webp") center no-repeat;
+  background-size: cover;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  gap: 20px; /* Space between items */
+  padding: 30px;
+  position: relative;
+  grid-template-columns: 1fr 1fr; /* Start with one column */
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  border-top: 2px solid black;
+  align-items: start; /* Prevent vertical stretching */
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.containerMap,
+.containerContact {
+  background: #9e8aa3;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  justify-content: start;
+  position: absolute;
+  align-items: start;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  transition: all 0.5s;
+  z-index: 11;
+}
+
+.containerContact {
+  height: 100%; /* Allow height to adjust dynamically */
+  aspect-ratio: 13 / 16;
+  grid-area: 1 / 2/ 3 / 3;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+#map {
+  grid-area: 2 / 1 / 3 / 2;
+  padding: 0;
+  overflow: hidden;
+}
+
+.containerMap {
+  height: 300px; /* Allow height to adjust dynamically */
+  justify-self: end;
+  aspect-ratio: 16 / 9;
+  grid-area: 1 / 1 / 1 /2;
+}
+
+.containerAddress {
+  height: 100%; 
+  width: 100%;
+  background: #dbc5e0;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.containerAddress h5, .containerAddress h6 {
+  padding: 30px;
+}
+
+/* Responsive grid: switch to two columns for larger screens */
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  #map {
+    grid-area: 2 / 1 / 3 / 2;
+    transform: translateY(0);
+  }
+
+  .containerContact {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+}
